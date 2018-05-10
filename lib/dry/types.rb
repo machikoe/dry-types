@@ -1,6 +1,8 @@
 require 'bigdecimal'
 require 'date'
 require 'set'
+require 'active_support'
+require 'active_support/core_ext/string/zones'
 
 require 'inflecto'
 require 'concurrent'

@@ -22,22 +22,20 @@ module Dry
 
       # @param [#to_str, Object] input
       # @return [DateTime, Object]
-      # @see DateTime.parse
+      # @see https://github.com/rails/rails/blob/2161b78336bb9c2b169063c22af10485ff9a93e7/activesupport/lib/active_support/core_ext/string/zones.rb#L9
       def to_date_time(input)
         return input unless input.respond_to?(:to_str)
-        DateTime.parse(input)
-      rescue ArgumentError
-        input
+        # @note in_time_zone maybe returns nil
+        input.to_str.in_time_zone&.to_datetime || input
       end
 
       # @param [#to_str, Object] input
       # @return [Time, Object]
-      # @see Time.parse
+      # @see https://github.com/rails/rails/blob/2161b78336bb9c2b169063c22af10485ff9a93e7/activesupport/lib/active_support/core_ext/string/zones.rb#L9
       def to_time(input)
         return input unless input.respond_to?(:to_str)
-        Time.parse(input)
-      rescue ArgumentError
-        input
+        # @note in_time_zone maybe returns nil
+        input.to_str.in_time_zone || input
       end
 
       private

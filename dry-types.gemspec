@@ -34,6 +34,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dry-configurable', '~> 0.1'
   spec.add_runtime_dependency 'dry-logic', '~> 0.4', '>= 0.4.2'
   spec.add_runtime_dependency 'inflecto', '~> 0.0.0', '>= 0.0.2'
+  # dependent on time zone expansion
+  spec.add_runtime_dependency 'activesupport'
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 11.0"

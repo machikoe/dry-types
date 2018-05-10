@@ -27,7 +27,7 @@ RSpec.describe Dry::Types::Definition do
     subject(:type) { Dry::Types['json.date_time'] }
 
     it 'coerces to a date time' do
-      expect(type['2015-11-26 12:00:00']).to eql(DateTime.new(2015, 11, 26, 12))
+      expect(type['2015-11-26 12:00:00']).to eql('2015-11-26 12:00:00'.in_time_zone.to_datetime)
     end
 
     it 'returns original value when it was unparsable' do
